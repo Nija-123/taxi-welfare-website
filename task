@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
-        /* BASE STYLES */
+        
         body {
             margin: 0;
             font-family: "Poppins", sans-serif;
@@ -18,7 +18,7 @@
             color: #333;
         }
 
-        /* UTILITY & REUSABLE STYLES */
+      
         .section-padding {
             padding: 50px 80px;
         }
@@ -26,7 +26,7 @@
             text-align: center;
         }
 
-        /* --- TOP INFO BAR --- */
+       
         .top-bar {
             background: #000;
             color: #fff;
@@ -41,17 +41,17 @@
             cursor: pointer;
         }
 
-        /* --- NAVBAR --- */
+       
         .navbar {
-            background: #f4b000; /* Yellow strip */
+            background: #f4b000; 
             display: flex;
             align-items: center;
             padding: 15px 30px;
             justify-content: space-between;
-            position: relative; /* Crucial for absolute positioning of mobile menu */
+            position: relative;
         }
 
-        /* LOGO */
+       
         .logo img {
             width: 120px;
         }
@@ -71,14 +71,14 @@
             color: #111;
         }
 
-        /* MOBILE MENU ICON */
+       
         .menu-toggle {
             display: none;
             font-size: 24px;
             cursor: pointer;
         }
 
-        /* LOGIN/REGISTER */
+        
         .auth-links a {
             margin-left: 15px;
             color: #000;
@@ -90,7 +90,7 @@
             color: #111;
         }
 
-        /* --- HERO SECTION --- */
+        
         .hero {
             display: flex;
             align-items: center;
@@ -141,7 +141,7 @@
             height: 300px; 
         }
 
-        /* --- WHO WE ARE SECTION --- */
+       
         .who-we-are {
             padding-top: 50px;
             padding-bottom: 50px;
@@ -206,10 +206,10 @@
             border: 0px solid transparent; 
         }
         
-        /* --- NEWS SECTION --- */
+        
         .news-section {
             padding-top: 50px;
-            padding-bottom: 50px; /* Reduced bottom padding, divider will add spacing */
+            padding-bottom: 50px; 
             display: flex; 
             flex-direction: column;
             align-items: center; 
@@ -238,7 +238,7 @@
             max-width: 1200px; 
         }
 
-        /* NEWS CARDS */
+        
         .news-card {
             width: 320px;
             background: #fff;
@@ -256,7 +256,7 @@
             border-radius: 15px 15px 0 0;
         }
 
-        /* TAG LABEL */
+        
         .tag {
             position: absolute;
             top: 175px; 
@@ -272,7 +272,7 @@
         .tag-blue { background: #004aad; }
         .tag-orange { background: #f5a623; }
 
-        /* CARD TEXT */
+        
         .news-text {
             padding: 45px 20px 20px 20px;
             font-size: 14px;
@@ -280,7 +280,7 @@
             line-height: 1.6;
         }
 
-        /* FOOTER */
+        
         .card-footer {
             padding: 0 20px;
             display: flex;
@@ -299,7 +299,7 @@
         .blue-dot { background: #004aad; }
         .orange-dot { background: #f5a623; }
 
-        /* READ BUTTON */
+        
         .read-btn {
             padding: 8px 18px;
             border-radius: 25px;
@@ -314,19 +314,19 @@
         .blue-btn { border-color: #004aad; color: #004aad; }
         .orange-btn { border-color: #f5a623; color: #f5a623; }
 
-        /* --- SECTION DIVIDER (NEW) --- */
+        
         .section-divider {
             position: relative;
             width: 90%;
             max-width: 1200px;
-            margin: 30px auto; /* Centered, gives space above and below */
+            margin: 30px auto;
             height: 2px;
             background: linear-gradient(to right, 
                 transparent 0%, 
                 #ddd 10%, 
                 #ddd 90%, 
                 transparent 100%
-            ); /* Light gray line to mark space */
+            ); 
         }
         
         .divider-icon {
@@ -334,11 +334,11 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: #fff; /* White background to cut out the line */
+            background: #fff; 
             padding: 0 15px;
             font-size: 28px;
             color: #f4b000;
-            /* Create the yellow dotted border around the icon area */
+            
             border: 2px dotted #f4b000;
             border-radius: 8px;
             display: flex;
@@ -352,7 +352,7 @@
             margin: 0;
         }
 
-        /* --- TOP FOCUS SECTION --- */
+        
         .focus-section {
             background-color: #f9a806;
             padding: 40px 20px;
@@ -402,7 +402,7 @@
             margin-bottom: 10px;
         }
 
-        /* --- GALLERY SECTION --- */
+        
         .gallery-container {
             display: flex;
             justify-content: space-between;
@@ -473,7 +473,7 @@
             right: -15px;
         }
 
-        /* --- SUPPORTERS SECTION --- */
+     
         .supporters-section {
             padding: 40px 80px;
             text-align: center;
@@ -523,7 +523,7 @@
             font-family: "Poppins", sans-serif;
         }
         
-        /* --- RESPONSIVE STYLING --- */
+        
         @media (max-width: 1024px) {
             .focus-content-wrapper {
                 flex-direction: column;
@@ -602,7 +602,7 @@
                 height: 250px;
             }
 
-            /* WHO WE ARE - Stacked Layout */
+           
             .who-we-are {
                 padding: 40px 20px;
             }
@@ -629,9 +629,9 @@
             }
 
 
-            /* NEWS SECTION */
+           
             .news-section {
-                padding: 40px 20px 20px 20px; /* Adjust padding for divider */
+                padding: 40px 20px 20px 20px; 
             }
             .news-container {
                 gap: 20px;
@@ -641,13 +641,13 @@
                 width: 90%; 
             }
 
-            /* SECTION DIVIDER */
+            
             .section-divider {
                 margin: 20px auto;
             }
 
 
-            /* FOCUS AREAS */
+            
             .focus-section {
                 padding: 30px 10px;
             }
@@ -669,7 +669,7 @@
                 flex-basis: 30%; 
             }
 
-            /* GALLERY SECTION */
+            
             .gallery-container {
                 flex-direction: column;
                 padding: 40px 20px;
@@ -683,7 +683,7 @@
                 display: none; 
             }
 
-            /* SUPPORTERS */
+            
             .supporters-section {
                 padding: 40px 20px;
             }
@@ -696,7 +696,7 @@
                 margin-bottom: 10px;
             }
 
-            /* FOOTER */
+           
             footer {
                 padding: 40px 20px;
             }
