@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taxi Operators Welfare Foundation</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* BASE STYLES */
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background-color: #fff;
+            color: #333;
+        }
+
+        /* UTILITY & REUSABLE STYLES */
+        .section-padding {
+            padding: 50px 80px;
+        }
+        .text-center {
+            text-align: center;
+        }
+
+        /* --- TOP INFO BAR --- */
+        .top-bar {
+            background: #000;
+            color: #fff;
+            padding: 6px 30px;
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .social-icons i {
+            margin-left: 12px;
+            cursor: pointer;
+        }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            background: #f4b000; /* Yellow strip */
+            display: flex;
+            align-items: center;
+            padding: 15px 30px;
+            justify-content: space-between;
+            position: relative; /* Crucial for absolute positioning of mobile menu */
+        }
+
+        /* LOGO */
+        .logo img {
+            width: 120px;
+        }
+        
+        .menu {
+            display: flex;
+            gap: 25px;
+            font-weight: 500;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #000;
+            transition: color 0.2s;
+        }
+        .menu a:hover {
+            color: #111;
+        }
+
+        /* MOBILE MENU ICON */
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* LOGIN/REGISTER */
+        .auth-links a {
+            margin-left: 15px;
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .auth-links a:hover {
+            color: #111;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #111;
+            padding: 40px 60px;
+            color: white;
+            position: relative;
+        }
+
+        .hero-text {
+            width: 45%;
+        }
+
+        .hero-text h1 {
+            font-size: 38px;
+            line-height: 1.3;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .hero-text span {
+            color: #f4b000;
+            font-weight: 800;
+        }
+
+        .hero-text p {
+            color: #bbb;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .hero-text button {
+            background: #f4b000;
+            border: none;
+            padding: 10px 22px;
+            font-size: 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .hero img {
+            width: 48%;
+            border-radius: 5px;
+            object-fit: cover;
+            height: 300px; 
+        }
+
+        /* --- WHO WE ARE SECTION --- */
+        .who-we-are {
+            padding-top: 50px;
+            padding-bottom: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            text-align: center;
+        }
+        
+        .who-we-are h2 {
+            font-size: 30px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .who-content-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 50px;
+            width: 90%; 
+            max-width: 1200px; 
+            text-align: left;
+        }
+
+        .who-text-mission {
+            flex: 2;
+        }
+        
+        .who-text-mission p {
+            line-height: 1.6;
+            color: #555;
+            font-size: 15px;
+        }
+        
+        .who-text-mission img {
+            width: 100px; 
+            margin: 20px 0;
+        }
+        
+        .who-text-mission h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        .who-image-circle {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            min-width: 250px;
+            min-height: 250px;
+        }
+
+        .who-image-circle img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 0px solid transparent; 
+        }
+        
+        /* --- NEWS SECTION --- */
+        .news-section {
+            padding-top: 50px;
+            padding-bottom: 50px; /* Reduced bottom padding, divider will add spacing */
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            text-align: center;
+        }
+
+        .news-title {
+            font-size: 30px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .news-icon i {
+            font-size: 26px;
+            color: #f4b000;
+            margin-bottom: 30px;
+        }
+
+        /* CARD CONTAINER */
+        .news-container {
+            display: flex;
+            justify-content: center; 
+            gap: 30px;
+            flex-wrap: wrap;
+            width: 90%; 
+            max-width: 1200px; 
+        }
+
+        /* NEWS CARDS */
+        .news-card {
+            width: 320px;
+            background: #fff;
+            border-radius: 15px;
+            padding-bottom: 20px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+            position: relative;
+            text-align: left;
+        }
+
+        .news-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px 15px 0 0;
+        }
+
+        /* TAG LABEL */
+        .tag {
+            position: absolute;
+            top: 175px; 
+            left: 20px;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-weight: 600;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .tag-red { background: #d72638; }
+        .tag-blue { background: #004aad; }
+        .tag-orange { background: #f5a623; }
+
+        /* CARD TEXT */
+        .news-text {
+            padding: 45px 20px 20px 20px;
+            font-size: 14px;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        /* FOOTER */
+        .card-footer {
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .red-dot { background: #d72638; }
+        .blue-dot { background: #004aad; }
+        .orange-dot { background: #f5a623; }
+
+        /* READ BUTTON */
+        .read-btn {
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 13px;
+            border: 1.5px solid;
+            background: transparent;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .red-btn { border-color: #d72638; color: #d72638; }
+        .blue-btn { border-color: #004aad; color: #004aad; }
+        .orange-btn { border-color: #f5a623; color: #f5a623; }
+
+        /* --- SECTION DIVIDER (NEW) --- */
+        .section-divider {
+            position: relative;
+            width: 90%;
+            max-width: 1200px;
+            margin: 30px auto; /* Centered, gives space above and below */
+            height: 2px;
+            background: linear-gradient(to right, 
+                transparent 0%, 
+                #ddd 10%, 
+                #ddd 90%, 
+                transparent 100%
+            ); /* Light gray line to mark space */
+        }
+        
+        .divider-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff; /* White background to cut out the line */
+            padding: 0 15px;
+            font-size: 28px;
+            color: #f4b000;
+            /* Create the yellow dotted border around the icon area */
+            border: 2px dotted #f4b000;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50px;
+            width: 50px;
+        }
+        
+        .divider-icon i {
+            margin: 0;
+        }
+
+        /* --- TOP FOCUS SECTION --- */
+        .focus-section {
+            background-color: #f9a806;
+            padding: 40px 20px;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .focus-content-wrapper {
+            display: flex;
+            align-items: center; 
+            width: 90%;
+            max-width: 1200px;
+            justify-content: space-between;
+        }
+
+        .focus-section h2 {
+            font-size: 32px;
+            margin: 0;
+            font-weight: 800;
+            text-align: left;
+            padding-right: 40px; 
+            flex-shrink: 0; 
+        }
+
+        .focus-items {
+            display: flex;
+            justify-content: flex-start; 
+            gap: 50px;
+            margin-top: 0;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .focus-items div {
+            flex-basis: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .focus-items div img {
+            width: 50px;
+            margin-bottom: 10px;
+        }
+
+        /* --- GALLERY SECTION --- */
+        .gallery-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 80px;
+        }
+
+        .gallery-text {
+            width: 40%;
+        }
+
+        .gallery-text h3 {
+            font-size: 26px;
+            margin-bottom: 15px;
+        }
+
+        .gallery-text p {
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: 2px solid #0d47a1;
+            background: transparent;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #0d47a1;
+        }
+
+        .gallery-image-box {
+            position: relative;
+            width: 55%;
+        }
+
+        .gallery-image-box img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .arrow:hover {
+            background: #f4b000;
+            color: white;
+        }
+
+        .left-arrow {
+            left: -15px;
+        }
+
+        .right-arrow {
+            right: -15px;
+        }
+
+        /* --- SUPPORTERS SECTION --- */
+        .supporters-section {
+            padding: 40px 80px;
+            text-align: center;
+        }
+
+        .supporters-section h3 {
+            font-size: 26px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .supporters-logos {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .supporter-box {
+            width: 20%;
+            min-width: 150px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100px; 
+        }
+
+        .supporter-box img {
+            width: auto;
+            max-width: 100%;
+            max-height: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #000; 
+            color: #fff; 
+            padding: 50px 80px; 
+            font-family: "Poppins", sans-serif;
+        }
+        
+        /* --- RESPONSIVE STYLING --- */
+        @media (max-width: 1024px) {
+            .focus-content-wrapper {
+                flex-direction: column;
+                align-items: flex-start;
+                max-width: 600px;
+            }
+            .focus-section h2 {
+                text-align: center;
+                width: 100%;
+                margin-bottom: 20px;
+                padding-right: 0;
+            }
+            .focus-items {
+                width: 100%;
+                justify-content: center;
+                gap: 30px;
+            }
+        }
+
+
+        @media (max-width: 820px) {
+            .top-bar {
+                flex-direction: column;
+                text-align: center;
+                padding: 10px 15px;
+            }
+            .top-bar > div:first-child {
+                margin-bottom: 5px;
+            }
+
+            .navbar {
+                padding: 15px 20px;
+            }
+            
+            .menu { 
+                display: none; 
+                flex-direction: column;
+                position: absolute;
+                top: 100%; 
+                left: 0;
+                width: 100%;
+                background: #f4b000;
+                padding: 0; 
+                box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+                z-index: 10;
+            }
+
+            .menu.active {
+                display: flex;
+            }
+
+            .menu a {
+                padding: 10px 30px;
+                border-bottom: 1px solid rgba(0,0,0,0.1);
+            }
+
+            .menu-toggle { 
+                display: block; 
+                order: 3; 
+            }
+
+            .auth-links {
+                display: none;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px;
+            }
+            .hero-text, .hero img {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .hero img {
+                height: 250px;
+            }
+
+            /* WHO WE ARE - Stacked Layout */
+            .who-we-are {
+                padding: 40px 20px;
+            }
+            .who-content-row {
+                flex-direction: column-reverse; 
+                align-items: center;
+                gap: 30px;
+                width: 100%; 
+            }
+            .who-image-circle {
+                margin-bottom: 20px;
+                min-width: 200px;
+                min-height: 200px;
+            }
+            .who-image-circle img {
+                 width: 200px;
+                 height: 200px;
+            }
+            .who-text-mission {
+                 text-align: center; 
+            }
+            .who-text-mission img {
+                 margin: 20px auto; 
+            }
+
+
+            /* NEWS SECTION */
+            .news-section {
+                padding: 40px 20px 20px 20px; /* Adjust padding for divider */
+            }
+            .news-container {
+                gap: 20px;
+                width: 100%; 
+            }
+            .news-card {
+                width: 90%; 
+            }
+
+            /* SECTION DIVIDER */
+            .section-divider {
+                margin: 20px auto;
+            }
+
+
+            /* FOCUS AREAS */
+            .focus-section {
+                padding: 30px 10px;
+            }
+            .focus-content-wrapper {
+                flex-direction: column;
+            }
+            .focus-section h2 {
+                text-align: center;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .focus-items {
+                gap: 20px;
+                flex-wrap: wrap;
+                font-size: 16px;
+                justify-content: center;
+            }
+            .focus-items div {
+                flex-basis: 30%; 
+            }
+
+            /* GALLERY SECTION */
+            .gallery-container {
+                flex-direction: column;
+                padding: 40px 20px;
+            }
+            .gallery-text, .gallery-image-box {
+                width: 100%;
+                margin-bottom: 30px;
+                text-align: center;
+            }
+            .arrow {
+                display: none; 
+            }
+
+            /* SUPPORTERS */
+            .supporters-section {
+                padding: 40px 20px;
+            }
+            .supporters-section h3 {
+                text-align: center; 
+            }
+            .supporter-box {
+                width: 45%;
+                min-width: unset;
+                margin-bottom: 10px;
+            }
+
+            /* FOOTER */
+            footer {
+                padding: 40px 20px;
+            }
+            footer > div {
+                flex-direction: column;
+                gap: 20px;
+            }
+            footer > div > div {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-bar">
+        <div>
+            23, Joseph Antoine street, Port Louis Central Road, Mauritius | (+230) 4223188 | Registered Charity No. 24910
+        </div>
+        <div class="social-icons">
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-youtube"></i>
+        </div>
+    </div>
+
+    
+    <div class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+
+        <div class="menu">
+            <a href="#">HOME</a>
+            <a href="#">HISTORY</a>
+            <a href="#">NEWS</a>
+            <a href="#">EVENTS</a>
+            <a href="#">GALLERY</a>
+            <a href="#">BENEFITS</a>
+            <a href="#">CONTACT US</a>
+        </div>
+        
+        <div class="auth-links">
+            <a href="#">LOGIN</a>
+            <a href="#">REGISTER</a>
+        </div>
+
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+
+    <div class="hero">
+        <div class="hero-text">
+            <h1>Inclusive communities where <br><span>EVERYONE</span> matters</h1>
+            <p>
+                We build rewarding futures through recognising people's strengths, championing their voices and working in partnership to deliver excellent services.
+            </p>
+            <button>More Gallery</button>
+        </div>
+
+        <img src="yellowcar.jpg" alt="Taxi Image">
+    </div>
+
+    <section class="who-we-are">
+        <h2>Who We Are</h2>
+        <div class="who-content-row">
+            
+            <div class="who-text-mission">
+                <p>We rely on volunteers to accomplish our commitment towards the welfare of the society. We welcome all individuals who aim to do their bit to create an equal and sustainable society.</p>
+                
+                <img src="logo1.png" alt="Foundation Logo">
+                
+                <h3>Mission:</h3>
+                <p>To provide timely and meaningful support to needy children, women & Senior Citizens by effectively implementing projects in the area of Health, Education and Nutrition, which have a sustainable, cost effective and positive impact on society & Environment.</p>
+            </div>
+
+            <div class="who-image-circle">
+                <img src="car.jpg" alt="Classic Taxi in Circle">
+            </div>
+
+        </div>
+    </section>
+    
+    <section class="news-section">
+
+        <h2 class="news-title">News and Events</h2>
+        <div class="news-icon">
+            <i class="fa-solid fa-taxi"></i>
+        </div>
+
+        <div class="news-container">
+
+            <div class="news-card">
+                <img src="https://blog.taxrobo.in/wp-content/uploads/2025/04/pexels-photo-6646917-1024x535.jpeg" alt="Foundation Services">
+                <div class="tag tag-red">Foundation Services</div>
+
+                <p class="news-text">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                </p>
+
+                <div class="card-footer">
+                    <span class="dot red-dot"></span>
+                    <button class="read-btn red-btn">Read More</button>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg" alt="Become A Volunteer">
+                <div class="tag tag-blue">Become A Volunteer</div>
+
+                <p class="news-text">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                </p>
+
+                <div class="card-footer">
+                    <span class="dot blue-dot"></span>
+                    <button class="read-btn blue-btn">Read More</button>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="https://images.pexels.com/photos/1566754/pexels-photo-1566754.jpeg" alt="Attend an Events">
+                <div class="tag tag-orange">Attend an Events</div>
+
+                <p class="news-text">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                </p>
+
+                <div class="card-footer">
+                    <span class="dot orange-dot"></span>
+                    <button class="read-btn orange-btn">Read More</button>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+    
+    
+
+    <section class="focus-section">
+        <div class="focus-content-wrapper">
+            <h2>OUR FOCUS AREAS</h2>
+            <div class="focus-items">
+                <div>
+                    <img src="https://cdn-icons-png.flaticon.com/512/8660/8660713.png" alt="Culture Icon">
+                    <p>Culture</p>
+                </div>
+                <div>
+                    <img src="https://cdn-icons-png.flaticon.com/512/2903/2903486.png" alt="Environment Icon">
+                    <p>Environment</p>
+                </div>
+                <div>
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" alt="Education Icon">
+                    <p>Education</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="gallery-container">
+        <div class="gallery-text">
+            <h3>Our Gallery</h3>
+            <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+            </p>
+            <button class="btn">More Gallery</button>
+        </div>
+
+        <div class="gallery-image-box">
+            <span class="arrow left-arrow">&#8249;</span>
+            <img src="https://images.pexels.com/photos/1566754/pexels-photo-1566754.jpeg" alt="Gallery Image">
+            <span class="arrow right-arrow">&#8250;</span>
+        </div>
+    </section>
+
+    <section class="supporters-section">
+        <h3>Our Supporters</h3>
+
+        <div class="supporters-logos">
+            <div class="supporter-box">
+                <img src="https://m.media-amazon.com/images/I/61ThHhQ+H-L._SX679_.jpg" alt="Amazon Logo">
+            </div>
+
+            <div class="supporter-box">
+                <img src="https://images.squarespace-cdn.com/content/v1/6213f60f8e073224f40bddbd/7bed501a-fce2-4572-9efb-afaa6706ea73/Family_Chateaux_Summit_Logo.jpg" alt="Chateaux Summit Logo">
+            </div>
+
+            <div class="supporter-box">
+                <img src="https://media.instahyre.com/images/profile/base/employer/26320/951b697df5/ignore/logos/Pravega_Ventures-26320-logo.webp" alt="Pravega Ventures Logo">
+            </div>
+
+            <div class="supporter-box">
+                <img src="https://techherald.in/wp-content/uploads/2024/01/Nutanix-11-10-850x550.jpg" alt="Nutanix Logo">
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
+
+            <div style="width: 25%; min-width: 200px;">
+                <img src="logo.png" width="120" alt="logo">
+                <p style="margin-top: 15px; line-height: 1.6;">
+                    23, Joseph Riviera street, Port Louis<br>
+                    Coastal Road, Tamarin<br>
+                    (+230) 4837538
+                </p>
+            </div>
+
+            <div style="width: 25%; min-width: 200px;">
+                <h4 style="margin-bottom: 10px;">ABOUT</h4>
+                <p style="line-height: 1.6;">
+                    Our history is built on the yearly outings we provide for the children and
+                    our fundraising activities which support the many appeals we receive for help.
+                </p>
+            </div>
+
+            <div style="width: 20%; min-width: 150px;">
+                <h4 style="margin-bottom: 10px;">LINKS</h4>
+                <p><a href="#" style="color: #fff; text-decoration: none;">Home</a></p>
+                <p><a href="#" style="color: #fff; text-decoration: none;">History</a></p>
+                <p><a href="#" style="color: #fff; text-decoration: none;">News & Events</a></p>
+                <p><a href="#" style="color: #fff; text-decoration: none;">Benefits</a></p>
+                <p><a href="#" style="color: #fff; text-decoration: none;">Contact Us</a></p>
+            </div>
+
+            <div style="width: 20%; min-width: 150px;">
+                <h4 style="margin-bottom: 10px;">CONNECT</h4>
+                <p style="font-size: 20px;">
+                    <i class="fab fa-facebook-f" style="margin-right: 12px; cursor: pointer;"></i>
+                    <i class="fab fa-twitter" style="margin-right: 12px; cursor: pointer;"></i>
+                    <i class="fab fa-instagram" style="margin-right: 12px; cursor: pointer;"></i>
+                    <i class="fab fa-youtube" style="cursor: pointer;"></i>
+                </p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #333;">
+            © 2023. Taxi Operators Welfare Foundation. All rights reserved
+        </div>
+    </footer>
+
+
+    
+</body>
+</html>
